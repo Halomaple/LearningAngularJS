@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Animations ng-class hook</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="../../node_modules/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="AngularAnimationNgClass" ng-controller="AngularAnimationNgClassCtrl as vm">
+		<p>
+			<input type="button" value="set" ng-click="myCssVar='css-class'">
+			<input type="button" value="clear" ng-click="myCssVar=''">
+			<br>
+			<span ng-class="myCssVar">CSS-Animated Text</span>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Dependency Injection</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<style type="text/css">
+			pre{
+				background-color: #f8f8f8;
+			}
+		</style>
+	</head>
+	<body>
+		1. Recommended way of declaring factories:
+		<pre>
+			angular.module('myModule', [])
+			.factory('serviceId', ['depService', function(depService) {
+			  // ...
+			}])
+			.directive('directiveName', ['depService', function(depService) {
+			  // ...
+			}])
+			.filter('filterName', ['depService', function(depService) {
+			  // ...
+			}]);
+		</pre>
+		
+		2. We can specify functions to run at configuration and run time for a module by calling the config and run methods. These functions are injectable with dependencies just like the factory functions above.
+		<pre>
+			angular.module('myModule', [])
+			.config(['depProvider', function(depProvider) {
+			  // ...
+			}])
+			.run(['depService', function(depService) {
+			  // ...
+			}]);
+		</pre>
+		
+		3. Recommended way of declaring controllers:
+		<pre>
+			someModule.controller('MyController', ['$scope', 'dep1', 'dep2', function($scope, dep1, dep2) {
+			  ...
+			  $scope.aMethod = function() {
+			    ...
+			  }
+			  ...
+			}]);
+		</pre>
+		4. Dependency Annotation
+		<br />
+		--4.1 Inline Array Annotation
+		<pre>
+			someModule.controller('MyController', ['$scope', 'greeter', function($scope, greeter) {
+			  // ...
+			}]);
+		</pre>
+		--4.2 $inject Property Annotation
+		<pre>
+			var MyController = function($scope, greeter) {
+			  // ...
+			}
+			MyController.$inject = ['$scope', 'greeter'];
+			someModule.controller('MyController', MyController);
+		</pre>
+		--4.2 Implicit Annotation
+		<pre>
+			//The simplest way to get hold of the dependencies is to assume that the function parameter names are the names of the dependencies.
+			someModule.controller('MyController', function($scope, greeter) {
+			  // ...
+			});
+			//Note: Careful-If you plan to minify your code, your service names will get renamed and break your app.
+		</pre>
+		5. Using Strict Dependency Injection
+		You can add an ng-strict-di directive on the same element as ng-app to opt into strict DI mode:
+		<pre>
+		&lt;!doctype html&gt;
+		&lt;html ng-app="myApp" ng-strict-di&gt;
+			&lt;body&gt;
+				I can add: {{ 1 + 2 }}.
+				&lt;script src="angular.js"&gt;&lt;/script&gt;
+			&lt;/body&gt;
+		&lt;/html&gt;
+		</pre>
+		Strict mode throws an error whenever a service tries to use implicit annotations.
+		Consider this module, which includes a willBreak service that uses implicit DI:
+		<pre>
+			angular.module('myApp', [])
+			.factory('willBreak', function($rootScope) {
+			  // $rootScope is implicitly injected
+			})
+			.run(['willBreak', function(willBreak) {
+			  // Angular will throw when this runs
+			}]);
+		</pre>
+
+		You can also use strict DI by providing: strictDi: true when manully boostrapping.
+		<pre>
+			angular.bootstrap(document, ['myApp'], {
+				strictDi: true
+			});
+		</pre>
+
+		
+	</body>
+</html>

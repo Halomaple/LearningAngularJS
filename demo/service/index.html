@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Service</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript">
+			//codes proving that angular service is singleton
+			function M() { console.log('M'); }
+			function M1(m) { console.log(1); }
+			function M2(m) { console.log(2); }
+			angular.module('myServiceModule',[])
+				.service('M', M)
+				.service('M1', ['M', M1])
+				.service('M2', ['M', M2])
+				.controller('MainCtrl',function(M1, M2){});
+		</script>
+		<script type="text/javascript" src="service.js"></script>
+	</head>
+	<body ng-app="myServiceModule">
+		<p>Please view the console. There should be only 1 'M'.</p>
+		
+		<hr/>
+		
+		<div id="simple" ng-controller="MyServiceController">
+			<p>Let's try this simple notify service, injected into the controller...</p>
+			<input ng-init="message='test'" ng-model="message" >
+			<button ng-click="callNotify(message);">NOTIFY</button>
+			<p>(you have to click 3 times to see an alert)</p>
+		</div>
+	</body>
+</html>

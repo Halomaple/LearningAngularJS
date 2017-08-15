@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form Update Debounce</title>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="debounceExample">
+		<div ng-controller="ExampleController">
+			<form>
+				Name(update in 2 seconds):
+				<input type="text" ng-model="user.name" ng-model-options="{ debounce: 2000 }" /><br />
+			</form>
+			<pre>username = "{{user.name}}"</pre>
+			<p>I.e. ng-model-options="{ debounce: 500 }" will wait for half a second since the last content change before triggering the model update and form validation.
+				<br />
+			If custom triggers are used, custom debouncing timeouts can be set for each event using an object in debounce. This can be useful to force immediate updates on some specific circumstances (like blur events).</p>
+			<p>
+				I.e. ng-model-options="{ updateOn: 'default blur', debounce: { default: 500, blur: 0 } }"<br />
+			If those attributes are added to an element, they will be applied to all the child elements and controls that inherit from it unless they are overridden.</p>
+		</div>
+	</body>
+</html>

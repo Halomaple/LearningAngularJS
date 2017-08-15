@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Directive Using transclude:true</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="docsTransclusionDirective">
+		<div ng-controller="Controller">
+			<my-dialog>Check out the contents, {{name}}!</my-dialog>
+		</div>
+
+
+		<hr/>
+		What does this transclude option do, exactly? transclude makes the contents of a directive with this option have access to the scope outside of the directive rather than inside.
+
+		<hr />
+		The transclude option changes the way scopes are nested. It makes it so that the contents of a transcluded directive have whatever scope is outside the directive, rather than whatever scope is on the inside. In doing so, it gives the contents access to the outside scope.		
+	</body>
+</html>

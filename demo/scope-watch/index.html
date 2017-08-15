@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="scopeWatchModule">
+	<head>
+		<title>Scope Watch Module</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="scope-watch.js"></script>
+		<style type="text/css">
+			table tr td{
+				border: 1px solid #eee;
+			}
+		</style>
+	</head>
+	<body ng-controller="scopeWatchModuleCtrl as vm">
+		<div>
+			<h1>Watch Reference</h1>
+			<button ng-click="vm.triggerWatchReference()">
+			Trigger Watch Reference Change
+			</button>
+			<table ng-if="vm.watchObjRefer">
+				<tr ng-repeat="obj1 in vm.watchObjRefer">
+					<td ng-repeat="value1 in obj1">{{value1}} </td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h1>Watch Content Collection</h1>
+			<button ng-click="vm.triggerWatchContentCollection()">
+			Trigger Watch Content Collection Change
+			</button>
+			<table ng-if="vm.watchObjContentCollect">
+				<tr ng-repeat="obj2 in vm.watchObjContentCollect">
+					<td ng-repeat="value2 in obj2">{{value2}} </td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<h1>Watch Value</h1>
+			<button ng-click="vm.triggerWatchValue()">
+			Trigger Watch Value Change
+			</button>
+			<table ng-if="vm.watchObjValue">
+				<tr ng-repeat="obj3 in vm.watchObjValue">
+					<td ng-repeat="value3 in obj3">{{value3}} </td>
+				</tr>
+			</table>
+		</table>
+	</div>
+</body>
+</html>

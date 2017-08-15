@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Component bindings</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="componentBindingsApp">
+		<div ng-controller="Controller as vm">
+			in parent controller:
+			<br/>
+			'<': <input type="text" ng-model="vm.one"/>
+			<br />
+			'<': <input type="text" ng-model="vm.four.name"/>
+			<br />
+			'=': {{vm.two}}
+			<input type="text" ng-model="vm.two.name">
+			<br />
+			<my-component one="vm.one" two="vm.two" three="vm.three()" four="vm.four" five="I am a string"></my-component>
+		</div>
+	</body>
+</html>

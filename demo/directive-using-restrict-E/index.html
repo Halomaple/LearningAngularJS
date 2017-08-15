@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Directive using restrict:'E'</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="docsRestrictDirective" ng-controller="Controller">
+		
+		using restrict:'E'
+		<div>
+			<my-customer></my-customer>
+		</div>
+
+		<hr>
+
+		using restrict:'A'
+		<div my-customer></div>
+
+		<hr>
+
+		When should I use an attribute versus an element? Use an element when you are creating a component that is in control of the template. The common case for this is when you are creating a Domain-Specific Language for parts of your template. Use an attribute when you are decorating an existing element with new functionality.
+
+		<br />
+
+		Using an element for the myCustomer directive is clearly the right choice because you're not decorating an element with some "customer" behavior; you're defining the core behavior of the element as a customer component.
+		
+	</body>
+</html>

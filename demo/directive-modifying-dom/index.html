@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Directive: modifying dom</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="docsTimeDirective">
+		<div ng-controller="Controller">
+			Date format: <input ng-model="format"> <hr/>
+			Current time is: <span my-current-time="format"></span>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Animations</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="../../node_modules/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript">
+			angular.module('Animations', []);
+		</script>
+	</head>
+	<body ng-app="Animations">
+		<div ng-init="checked=true">
+			<label>
+				<input type="checkbox" ng-model="checked" style="float:left; margin-right:10px;"> Is Visible...
+			</label>
+			<div class="check-element sample-show-hide" ng-show="checked" style="clear:both;">
+				Visible...
+			</div>
+		</div>
+	</body>
+</html>

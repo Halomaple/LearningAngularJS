@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Material md-select</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../../node_modules/angular-material/angular-material.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="../../node_modules/angular-aria/angular-aria.min.js"></script>
+		<script type="text/javascript" src="../../node_modules/angular-animate/angular-animate.min.js"></script>
+		<script type="text/javascript" src="../../node_modules/angular-material/angular-material.min.js"></script>
+
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<div ng-app="selectDemoSelectHeader" ng-controller="SelectHeaderController" class="md-padding main-container" >
+			<md-input-container>
+				<label>Selector</label>
+				<md-select ng-model="currentSelections" md-on-close="clearSearchTerm()"
+				data-md-container-class="selectdemoSelectHeader" multiple>
+					<md-select-header class="demo-select-header">
+						<input ng-model="searchTerm" type="search" placeholder="Search for a choise.." class="demo-header-searchbox md-text">
+					</md-select-header>
+					<md-optgroup ng-repeat="group in selections">
+						<md-checkbox ng-model="group.isChecked" ng-change="updateGroupCheck(group)"> {{group.name}} </md-checkbox>
+						<md-option ng-value="item" ng-click="getCurrentGroupValue(group)" ng-repeat="item in group.choise | filter:searchTerm">{{item}}</md-option>
+					</md-optgroup>
+				</md-select>
+			</md-input-container>
+			<div style="float: right;">{{currentSelections}}</div>
+		</div>
+
+
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<html ng-app="myHelloWorldApp" ng-controller="myCtrl">
+	<head>
+		<title>Hello AngularJs</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript">
+		var app = angular.module("myHelloWorldApp", []);
+		app.controller('myCtrl', function($scope) {
+			$scope.message = "Hello AngularJs!";
+		});
+		</script>
+	</head>
+	<body>
+		<input ng-model="message"/>
+		<div>{{message}}</div>
+		<p>
+			<b>Here is the explanation of how the Hello AngularJs example achieves the data-binding effect when the user enters text into the text field.</b>
+		</p>
+		
+		<em>1. During the compilation phase:</em>
+		<ul>
+			<li>
+				the ng-model and input directive set up a keydown listener on the &lgt;input&&gt; control.
+			</li>
+			<li>
+				the interpolation sets up a $watch to be notified of name changes.
+			</li>
+		</ul>
+		<em>2. During the runtime phase:</em>
+		<ul>
+			<li>
+				Pressing an 'X' key causes the browser to emit a keydown event on the input control.
+			</li>
+			<li>
+				The input directive captures the change to the input's value and calls $apply("name = 'X';") to update the application model inside the Angular execution context.
+			</li>
+			<li>
+				Angular applies the name = 'X'; to the model.
+			</li>
+			<li>
+				The $digest loop begins
+			</li>
+			<li>
+				The $watch list detects a change on the name property and notifies the interpolation, which in turn updates the DOM.
+			</li>
+			<li>
+				Angular exits the execution context, which in turn exits the keydown event and with it the JavaScript execution context.
+			</li>
+			<li>
+				The browser re-renders the view with the updated text.
+			</li>
+		</ul>
+	</body>
+</html>

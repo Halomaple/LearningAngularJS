@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Modify built-in validators</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="modifyBuiltInValidators">
+		<form name="form" class="css-form" novalidate>
+			<div>
+				Overwritten Email:
+				<input type="email" ng-model="myEmail" overwrite-email name="overwrittenEmail" />
+				<span ng-show="form.overwrittenEmail.$error.email">This email format is invalid!</span><br>
+				Model: {{myEmail}}
+			</div>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Directive Using transclude and parse functions</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="docsIsoFnBindExample">
+		<div ng-controller="Controller">
+			{{message}}
+			<my-dialog ng-hide="dialogIsHidden" on-close="hideDialog(message)">
+			Check out the contents, {{name}}!
+			</my-dialog>
+		</div>
+	</body>
+</html>

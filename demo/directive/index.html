@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="directiveApp">
+	<head>
+		<title>Angular Directive</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript">
+			angular.module('directiveApp', []).directive('directiveExample', directiveExample);
+			function directiveExample() {
+				return {
+					restrict: 'E',
+					template: 'I am a directive'
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<directive-example></directive-example>
+	</body>
+</html>

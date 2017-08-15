@@ -1,0 +1,12 @@
+html, body {
+	color: #413f3f;
+	font-size: 100%;
+	font-family: Helvetica Neue, Helvetica, Microsoft YaHei, WenQuanYi Micro Hei, Arial, sans-serif;
+	line-height: 1.5
+}
+pre {
+	font-size: 0.75em;
+	font-family: Monaco, Menlo, Consolas, Courier New, monospace;
+	background-color: #eee;
+	color: #dd1144;
+}

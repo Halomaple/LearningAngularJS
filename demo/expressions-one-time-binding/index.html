@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Expression Context</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<div ng-app="oneTimeBidingExampleApp" ng-controller="EventController">
+			<button ng-click="clickMe($event)">Click Me</button>
+			<p id="one-time-binding-example">One time binding: {{::name}}</p>
+			<p id="normal-binding-example">Normal binding: {{name}}</p>
+		</div>
+		<hr />
+		<p>
+			<b>One-time binding expressions will retain the value of the expression at the end of the digest cycle as long as that value is not undefined.
+			If the value of the expression is set within the digest loop and later, within the same digest loop, it is set to undefined, then the expression is not fulfilled and will remain watched.</b>
+			<br />
+			- Given an expression that starts with ::, when a digest loop is entered and expression is dirty-checked, store the value as V
+			<br />
+			- If V is not undefined, mark the result of the expression as stable and schedule a task to deregister the watch for this expression when we exit the digest loop
+			<br />
+			- Process the digest loop as normal
+			<br />
+			- When digest loop is done and all the values have settled, process the queue of watch deregistration tasks.
+			For each watch to be deregistered, check if it still evaluates to a value that is not undefined.
+			If that's the case, deregister the watch. Otherwise, keep dirty-checking the watch in the future digest loops by following the same algorithm starting from step 1
+		</p>
+	</body>
+</html>

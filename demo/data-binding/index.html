@@ -1,0 +1,25 @@
+<html>
+	<head>
+		<title>
+		Data Binding In Angular
+		</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app ng-init="qty=1;cost=2">
+			<b>Invoice:</b>
+			<div>
+				Quantity: <input type="number" min="0" ng-model="qty">
+			</div>
+			<div>
+				Costs: <input type="number" min="0" ng-model="cost">
+			</div>
+			<div>
+				
+				<b>Total:</b> {{qty * cost | currency}}
+			</div>
+		</div>
+	</body>
+</html>

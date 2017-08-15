@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Components</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="dataModificationApp">
+		<!-- components match only elements -->
+		<div ng-controller="mainCtrl as ctrl">
+			<b>Hero</b><br>
+			<hero-detail hero="ctrl.hero"></hero-detail>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular component lifecycle hooks</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="componentLifeCycleHooks">
+		<div ng-controller="mainCtrl as vm">
+		<button ng-click="vm.newTwo()">make vm.two a new object</button>			
+			<my-component one="vm.one" two="vm.two"></my-component>
+		</div>
+	</body>
+</html>

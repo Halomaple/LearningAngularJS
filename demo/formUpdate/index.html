@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form update (customTriggerExample)</title>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="customTriggerExample">
+		<div ng-controller="ExampleController">
+			<form>
+				Name(update on blur):
+				<input type="text" ng-model="user.name" ng-model-options="{ updateOn: 'blur' }" /><br />
+				Other data(normal update):
+				<input type="text" ng-model="user.data" /><br />
+			</form>
+			<pre>username = "{{user.name}}"</pre>
+			<pre>userdata = "{{user.data}}"</pre>
+		</div>
+	</body>
+</html>

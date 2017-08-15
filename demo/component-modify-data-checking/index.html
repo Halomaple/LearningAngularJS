@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Components modification check</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="modificationCheckApp">
+		<!-- components match only elements -->
+		<div ng-controller="Controller as ctrl">
+		In controller
+			<p>testData2: '{{ctrl.testData2}}' from modification-check component</p>
+			<p>testObj1:{{ctrl.testObj1}}</p>
+			<modification-check test-data1="ctrl.testData1" test-obj1="ctrl.testObj1"></modification-check>
+		</div>
+	</body>
+</html>

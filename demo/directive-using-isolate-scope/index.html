@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Directive using isolate scope</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="docsIsolateScopeDirective">
+		<div ng-controller="Controller">
+			<my-customer info="naomi"></my-customer>
+			<hr>
+			<my-customer info="igor"></my-customer>
+			<hr/>
+			As the name suggests, the isolate scope of the directive isolates everything except models that you've explicitly added to the scope: {} hash object.
+
+			<my-customer></my-customer>
+
+			<br/>
+			Note: Normally, a scope prototypically inherits from its parent. An isolated scope does not. See the "Directive Definition Object - scope" section for more information about isolate scopes.
+
+		</div>
+	</body>
+</html>

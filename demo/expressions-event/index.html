@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Expression Context</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<div ng-app="eventExampleApp" ng-controller="EventController">
+			<button ng-click="clickMe($event)">Event</button>
+			<p><code>$event</code>: <pre> {{$event | json}}</pre></p>
+			<p><code>clickEvent</code>: <pre>{{clickEvent | json}}</pre></p>
+		</div>
+	</body>
+</html>

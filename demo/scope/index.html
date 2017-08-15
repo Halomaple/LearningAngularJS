@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="scopeExample">
+	<head>
+		<title>Angular Scopes</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="scope.js"></script>
+	</head>
+	<body>
+		<div ng-controller="MyController">
+			Your name:
+			<input type="text" ng-model="username">
+			<button ng-click='sayHello()'>greet</button>
+			<hr>
+			{{greeting}}
+		</div>
+	</body>
+</html>

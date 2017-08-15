@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html ng-app="spicyApp1">
+	<head>
+		<title>Controller</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="controller.js"></script>
+		<style type="text/css">
+			header {
+				border-bottom: 1px solid #eee;
+				margin-bottom: 20px;
+			}
+			div.spicy div {
+				padding: 10px;
+				border: solid 2px blue;
+				color: #333;
+			}
+			.left-side {
+				float: left;
+			}
+			.right-side {
+				float: right;
+			}
+			.left-side, .right-side {
+				width: 50%;
+			}
+			.clear, section {
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+		<header>1. Controller example</header>
+		<div class="left-side">
+			<pre>
+				js
+				------------
+				myApp.controller('SpicyController', ['$scope', function($scope) {
+				$scope.spice = 'very';
+				$scope.chiliSpicy = function() {
+				    $scope.spice = 'chili';
+				};
+				$scope.jalapenoSpicy = function() {
+				    $scope.spice = 'jalapeno';
+				};
+				}]);
+			</pre>
+		</div>
+		<div class="right-side">
+			<pre>
+				html
+				-----------
+				&lt;div ng-controller="SpicyController"&gt;
+				&lt;button ng-click="chiliSpicy()"&gt;Chili&lt;/button&gt;
+				&lt;button ng-click="jalapenoSpicy()"&gt;jalapeno&lt;/button&gt;
+				&lt;p&gt;The food is {{spice}} spicy!&lt;/p&gt;
+				&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="clear"></div>
+		<div ng-controller="SpicyController">
+			<button ng-click="chiliSpicy()">Chili</button>
+			<button ng-click="jalapenoSpicy()">jalapeno</button>
+			<p>The food is {{spice}} spicy!</p>
+		</div>
+	</section>
+	<section>
+	<header>2. Methods with arguments</header>
+	<div ng-controller="SpicyController1">
+		<input ng-model="customSpice">
+		<button ng-click="spicy('chili')">Chili</button>
+		<button ng-click="spicy(customSpice)">Custom spice</button>
+		<p>The food is {{spice1}} spicy!</p>
+	</div>
+</section>
+<section>
+<header>3. Scope Inheritance Example</header>
+<div class="spicy">
+	<div ng-controller="MainController">
+		<p>Good {{timeOfDay}}, {{name}}!</p>
+		<div ng-controller="ChildController">
+			<p>Good {{timeOfDay}}, {{name}}!</p>
+			<div ng-controller="GrandChildController">
+				<p>Good {{timeOfDay}}, {{name}}!</p>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+</body>
+</html>

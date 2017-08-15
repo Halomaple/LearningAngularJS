@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Filter Reverse and Upper-case</title>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="myReverseFilterApp">
+		<div ng-controller="MyController">
+			<input ng-model="greeting" type="text"><br>
+			No filter: {{greeting}}<br>
+			Reverse: {{greeting|reverse}}<br>
+			Reverse + uppercase: {{greeting|reverse:true}}<br>
+			Reverse, filtered in controller: {{filteredGreeting}}<br>
+		</div>
+	</body>
+</html>

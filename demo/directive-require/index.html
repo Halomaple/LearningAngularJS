@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Angular Directive: require controller</title>
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body ng-app="DirectiveRequireExample">
+		<first-controller></first-controller>
+
+		<hr />
+
+		<div ng-controller="SecondController as vm">
+			Name: {{vm.name}}
+		</div>
+	</body>
+</html>
