@@ -1,25 +1,31 @@
-var module = angular.module('DirectiveRequireExample', []);
+var app = angular.module('DirectiveRequireExample', []);
 
-module.directive('firstController', [function () {
-	return {
-		restrict: 'E',
-		templateUrl: 'first-controller.html',
-		link: function (scope, ele, attrs) {
-			
-		}
+app.controller('firstDirectiveController', function() {
+	var vm = this;
+	vm.name = 'firstDirectiveController';
+
+	vm.showRequireControllerName = function(name) {
+		vm.name += ' - Require by ' + name;
 	};
-}]);
+}).directive('firstDirective', function() {
+	return {
+		controller: 'firstDirectiveController',
+		controllerAs: 'vm',
+		restrict: 'E',
+		templateUrl: 'first-controller.html'
+	};
+});
 
-module.controller('SecondController', function(){
+app.controller('SecondController', function() {
 	var vm = this;
 	vm.name = 'SecondController';
 });
 
-module.controller('CustomizeDirectiveController', function() {
+app.controller('CustomizeDirectiveController', function() {
 	var vm = this;
 	vm.name = 'CustomizeDirectiveController';
-	vm.showRequireControllerName = function(){
-		vm.name += 'require controller : CustomizeDirectiveController';
+	vm.showRequireControllerName = function(name) {
+		vm.name += ' - Require by ' + name;
 	};
 }).directive('customizeDirective', function() {
 	return {
@@ -27,12 +33,12 @@ module.controller('CustomizeDirectiveController', function() {
 		controller: 'CustomizeDirectiveController',
 		controllerAs: 'vm',
 		scope: {},
-		require: ['^^firstController'],
+		require: ['^firstDirective'],
 		templateUrl: 'customize-directive.html',
-		link: function(scope, element, attrs, controllers){
+		link: function(scope, element, attrs, controllers) {
+			console.log(scope);
 			var parentController = controllers[0];
-			console.log(parentController);
-			parentController.showRequireControllerName();
+			parentController.showRequireControllerName(scope.vm.name);
 		}
 	};
 });
