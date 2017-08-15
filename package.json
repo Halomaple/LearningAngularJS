@@ -1,10 +1,10 @@
 {
 	"dependencies": {
-		"angular": "^1.5.9",
-		"angular-mocks": "^1.5.9",
-		"angular-route": "^1.5.9",
-		"angular-animate": "^1.5.9",
-		"angular-aria": "^1.5.9",
+		"angular": "1.5.9",
+		"angular-mocks": "1.5.9",
+		"angular-route": "1.5.9",
+		"angular-animate": "1.5.9",
+		"angular-aria": "1.5.9",
 		"angular-material": "^1.1.1",
 		"grunt": "^1.0.1",
 		"grunt-angular-templates": "^1.1.0",
