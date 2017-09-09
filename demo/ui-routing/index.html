@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ui State Demo</title>
+		<meta charset="utf-8">
+
+		<!--AngularJS v1.5.9-->
+		<script type="text/javascript" src="../../node_modules/angular/angular.min.js"></script>
+
+		<!--angular-ui-router v1.0.3-->
+		<script type="text/javascript" src="../../node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+
+		<script type="text/javascript">
+			var app = angular.module('uiDemo', ['ui.router']);
+			app.config(function($stateProvider) {
+				$stateProvider.state('parent', {
+					url: 'parent',
+					controller: 'ParentController'
+				}).state('parentChildOne', {
+					controller: 'ChildOneController',
+					template: '<h1>Child One</h2>'
+				}).state('parentChildTwo', {
+					controller: 'ChildTwoController',
+					template: '<h1>Child Two</h2>'
+				});
+			});
+			app.controller('ParentController', ['$state', function($state) {
+				console.log('Parent Controller Start');
+				if (Math.round(Math.random()) === 0) {
+					$state.go('parentChildOne');
+				} else {
+					$state.go('parentChildTwo');
+				}
+			}]);
+			app.controller('ChildOneController', ['$state', function($state) {
+				console.log('Child One');
+			}]);
+			app.controller('ChildTwoController', ['$state', function($state) {
+				console.log('Child Two');
+			}]);
+		</script>
+	</head>
+	<body ng-app="uiDemo">
+		<nav>
+			<a ui-sref="parent">Parent</a>
+		</nav>
+
+		<ui-view></ui-view>
+	</body>
+</html>
